@@ -1,0 +1,594 @@
+:root {
+    --background-light: #c1bcec;
+    --background-white: #f6f5ff;
+    --text-dark: #0a0040;
+    --color-primary: #6143ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    color: var(--text-dark);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-white);
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    width: 100px;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar img{
+max-width: 100%;
+
+}
+
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    height: 100px;
+    background-color: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    margin-left: 5px;
+}
+.btn:hover{
+ transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    padding: 0px;
+    gap: 20px;
+}
+
+.graph {
+    width: 33%;
+    background-color: var(--background-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 0 20px;
+}
+
+.graph_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.graph_header h2 {
+    font-size: 1.0rem;
+}
+
+.graph_header .LinhaHeader {
+    flex: 1;
+    margin: 0 10px;
+    border: none;
+    height: 1px;
+    background-color: var(--text-dark);
+    opacity: 0.2;
+}
+
+.graph_header-subtitle {
+    width: 100%;
+    font-size: 0.95rem;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.graph_placeholder {
+
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+
+    background-size: contain;
+
+
+}
+
+.tasks_left_footer{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin-top: 50px;
+}
+
+.list {
+    flex: 1;
+    background-color: var(--background-white);
+    padding: 20px 20px 0px 20px;
+}
+
+.list_header {
+    display: flex;
+}
+
+.list-header_select {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.task_list{
+    display: flex;
+    flex-direction: column;
+    max-width: 98%;
+    margin-top: 20px;
+
+}
+
+.task{
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding:30px 15px;
+margin-top: 10px;
+margin-bottom: 10px;
+border-bottom: 1px solid var(--background-light);
+transition: all .3s ease-in-out;
+}
+.task:hover{
+background-color: var(--background-light);
+transform: scale(1.05);
+border-radius: 15px;
+overflow: hidden;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    flex:1;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.priority , .action{
+    display: flex;
+    flex-direction: row;
+    flex :1;
+    align-items: center;
+}
+
+.action{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.action a{
+    margin-left: 20px;
+    margin-top: 10px;
+    transition: all .3s ease-in-out;
+
+}
+
+.action>a:hover{
+  transform: scale(1.50);
+}
+
+
+.sphere{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.task_title{
+    padding-left: 10px;
+}
+
+
+/* Centraliza o conteúdo da seção */
+#create_task_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Altura da tela */
+    background-color: #f3f3fc;
+}
+
+/* Estiliza o formulário */
+#create_task_section form {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Estilização geral da área de input */
+.inputArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputArea label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.inputArea input[type="text"] {
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+select,
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(97, 67, 255, 0.1);
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+
+.inputArea input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.inputArea + .inputArea {
+    margin-top: 20px;
+}
+
+
+/* Botão de envio (caso você adicione) */
+.inputArea button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5d3fd3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.inputArea button:hover {
+    background-color: #472dc2;
+
+}
+
+.task:not(:last-child) {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+
+
+.form-page {
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-login {
+    padding: 20px 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+.form-login-page {
+    max-width: 450px;
+    margin: 145px auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header img {
+    margin-bottom: 10px;
+}
+
+.login-header h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+
+/* Aplica estilo SOMENTE se estiver na página de login */
+main.form-login-page .btn-login-submit,
+main.form-login-page .btn-login-reset {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+/* Estilo do botão "Login" */
+main.form-login-page .btn-login-submit {
+    background: linear-gradient(to right, #6143ff, #7b5dfd);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(97, 67, 255, 0.25);
+}
+
+main.form-login-page .btn-login-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(97, 67, 255, 0.3);
+}
+
+/* Estilo do botão "Limpar" */
+main.form-login-page .btn-login-reset {
+    background: transparent;
+    border: 2px solid #ccc;
+    color: var(--text-dark);
+}
+
+main.form-login-page .btn-login-reset:hover {
+    background-color: #eee;
+    border-color: #aaa;
+    transform: scale(1.03);
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: nowrap;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header img {
+    margin-bottom: 10px;
+}
+
+.system-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.system-subtitle {
+    font-size: 1rem;
+    color: var(--text-dark);
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: nowrap;
+}
+
+/* Botões exclusivos da tela de login */
+main.form-login-page .btn-login-submit,
+main.form-login-page .btn-login-reset {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+main.form-login-page .btn-login-submit {
+    background: linear-gradient(to right, #6143ff, #7b5dfd);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(97, 67, 255, 0.25);
+}
+
+main.form-login-page .btn-login-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(97, 67, 255, 0.3);
+}
+
+main.form-login-page .btn-login-reset {
+    background: transparent;
+    border: 2px solid #ccc;
+    color: var(--text-dark);
+}
+
+main.form-login-page .btn-login-reset:hover {
+    background-color: #eee;
+    border-color: #aaa;
+    transform: scale(1.03);
+}
+
+
+/* Oculta o <label> padrão dos componentes */
+.form-login-page label {
+    display: none;
+}
+
+/* Adiciona um título visual acima dos inputs usando o placeholder */
+.form-login-page input::placeholder {
+    font-weight: normal;
+    color: #aaa;
+}
+
+/* Opcional: estilização geral dos inputs */
+.form-login-page input[type="email"],
+.form-login-page input[type="password"] {
+    margin-top: 5px;
+}
+
+.login-call {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 5px;
+    color: #333;
+}
+
+.login-register-area {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.login-register-area span {
+    margin-right: 5px;
+}
+
+.login-register-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-register-link:hover {
+    text-decoration: none;
+    color: #472dc2;
+}
+
+
+/* Centraliza o conteúdo do formulário de registro */
+main.form-register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-white);
+}
+
+.register-wrapper {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Alinha os botões da tela de registro igual à tela de login */
+main.form-register-page .btn-login-submit,
+main.form-register-page .btn-login-reset {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+main.form-register-page .btn-login-submit {
+    background: linear-gradient(to right, #6143ff, #7b5dfd);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(97, 67, 255, 0.25);
+}
+
+main.form-register-page .btn-login-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(97, 67, 255, 0.3);
+}
+
+main.form-register-page .btn-login-reset {
+    background: transparent;
+    border: 2px solid #ccc;
+    color: var(--text-dark);
+}
+
+main.form-register-page .btn-login-reset:hover {
+    background-color: #eee;
+    border-color: #aaa;
+    transform: scale(1.03);
+}
