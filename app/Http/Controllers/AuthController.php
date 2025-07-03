@@ -63,12 +63,18 @@ class AuthController extends Controller
                     'password'=>'required|min:6',
                 ]);
 
+                 $user = User::where('email', $validador['email'])->first();
+
+                 if (!$user) {
+                    return redirect()->back()->withErrors(['email' => 'Usuário não cadastrado.'])->withInput();
+    }
+
               if(Auth::attempt($validador)){
 
                 return redirect(route('home'));
               }
 
-               //   return redirect(route('home'));
+                 return redirect()->back()->withErrors(['password' => 'Senha inválida.'])->withInput();
 
                     }
 

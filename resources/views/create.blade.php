@@ -21,7 +21,6 @@
         />
 
         <x-form.select-input name="category_id" label="Categoria" placeholder="Selecione a categoria">
-            <option value="estudo">Estudo</option>
             @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->title }}</option>
             @endforeach

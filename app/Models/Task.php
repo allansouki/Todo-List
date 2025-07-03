@@ -4,9 +4,12 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 class Task extends Model
 {
+     use HasFactory, Notifiable;
+
     protected $fillable = [
         'title',
         'is_done',

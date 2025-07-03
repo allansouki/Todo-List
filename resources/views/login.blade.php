@@ -7,10 +7,10 @@
     <p class="login-call">Faça seu login</p>
 
     @if ($errors->any())
-    <div class="login-error">
+    <div class="login-error" >
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li style="color:red">{{ $error }}</li>
             @endforeach
         </ul>
     </div>
